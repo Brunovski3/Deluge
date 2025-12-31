@@ -1,0 +1,24 @@
+contato = zoho.crm.getRecordById("Contacts", contatoId);
+ultimaRevisao = contato.get("Data_da_Ultima_Revisao").toDate();
+proximaRevisao = ultimaRevisao.addMonth(10);
+proprietario = contato.get("Owner").get("id");
+tipoCadastro = contato.get("Tipo_de_Cadastro");
+
+if ( tipoCadastro == "Pessoa Física" )
+{
+	mp = Map();
+	mp.put("Pr_xima_Revis_o_da_Carteira",proximaRevisao);
+	update = zoho.crm.updateRecord("Contacts",contatoId,mp);
+	info update;
+	
+	mp2 = Map();
+	mp2.put("Subject","Realizar revisão de carteira");
+	mp2.put("Due_Date", proximaRevisao);
+	mp2.put("Tipo_de_Tarefa", "Revisão de Carteira");
+	mp2.put("Status", "Não Iniciada");
+	mp2.put("Priority","Baixa");
+	mp2.put("Owner", proprietario);
+	mp2.put("Who_Id", contato.get("id"));
+	create = zoho.crm.createRecord("Tasks",mp2);
+	info create;
+}
