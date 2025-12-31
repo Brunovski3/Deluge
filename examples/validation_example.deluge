@@ -1,0 +1,11 @@
+// Validação de campo (usado em custom function ligada a regra)
+
+// Verifica se 'Amount' é válido
+if (input.get("Amount") != null && input.get("Amount").toLong() < 0)
+{
+    info "Erro de validação: Amount não pode ser negativo";
+}
+else
+{
+    info "Validação OK";
+}

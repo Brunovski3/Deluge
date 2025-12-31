@@ -1,0 +1,10 @@
+// Delete (Tasks) via invokeConnector
+
+tarefaid = 1234567890123456; 
+
+mp = Map();
+mp.put("module", "Tasks");
+mp.put("id", tarefaid);
+
+resp = zoho.crm.invokeConnector("crm.delete", mp);
+info resp;

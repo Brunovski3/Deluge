@@ -1,0 +1,21 @@
+// Exemplo de tipos de dados básicos no Deluge
+
+// Texto (String)
+nome = "Bruno Santos";
+info "Nome: " + nome;
+
+// Número Inteiro (BigInt)
+quantidade = 5;
+info "Quantidade: " + quantidade;
+
+// Número Decimal (Decimal)
+preco = 19.99;
+info "Preço: " + preco;
+
+// Booleano (Boolean)
+estaAtivo = true;
+info "Está ativo? " + estaAtivo;
+
+// Data (Date)
+hoje = today;
+info "Data de hoje: " + hoje;

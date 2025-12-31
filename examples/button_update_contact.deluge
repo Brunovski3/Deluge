@@ -1,0 +1,16 @@
+// Script para Botão Personalizado
+// Objetivo: Atualizar o telefone do contato com um clique
+
+// O 'contact_id' deve ser configurado como argumento na criação do botão
+id = input.contact_id; 
+
+dados = Map();
+dados.put("Phone", "+55 11 90000-0000");
+
+info "Iniciando atualização do contato: " + id;
+
+// Executa a atualização
+// resultado = zoho.crm.updateRecord("Contacts", id.toLong(), dados);
+// info resultado;
+
+return "Telefone atualizado com sucesso!"; // Mensagem que aparece para o usuário

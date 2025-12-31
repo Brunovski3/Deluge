@@ -1,0 +1,28 @@
+// Exemplos de uso real para consulta rápida
+// Baseado no guia de casos de uso (docs/04)
+
+info "Iniciando processamento de casos de uso...";
+
+// 1) Atualização simples de campo (Email)
+// Útil para quando recebemos um webhook ou gatilho externo
+contatoId = 1234567890; 
+payload = Map();
+payload.put("Email", "contato.cliente@gmail.com");
+
+info "Atualizando contato " + contatoId + " com novo email: " + payload.get("Email");
+
+// 2) Atualizar Negócio (Deal) com valor calculado
+// Exemplo: salvar o log10 de um valor para análise estatística posterior
+dealId = 9876543210;
+valorOriginal = 1000;
+logCalculado = valorOriginal.log10();
+
+dealPayload = Map();
+dealPayload.put("Valor_Log10", logCalculado);
+
+info "Salvando log10 (" + logCalculado + ") no Negócio " + dealId;
+
+// Nota: As linhas de execução (updateRecord) estão comentadas para evitar erros em ambientes sem esses IDs.
+// resp = zoho.crm.updateRecord("Deals", dealId.toLong(), dealPayload);
+
+info "Processamento finalizado.";

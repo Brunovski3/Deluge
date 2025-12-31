@@ -1,0 +1,10 @@
+// Update Record (Contacts)
+
+contatoId = 1234567890123456; 
+
+mp = Map();
+mp.put("Phone", "+55 11 99999-9999");
+mp.put("Lead_Source", "Site");
+
+resp = zoho.crm.updateRecord("Contacts", contatoId, mp);
+info resp;

@@ -1,0 +1,16 @@
+// Script para Workflow (Gatilho de Criação)
+// Objetivo: Padronizar a origem do Lead/Contato assim que ele entra no sistema
+
+info "Iniciando automação de criação...";
+
+// O ID do registro vem via argumento da função (ex: 'recId')
+id = input.recId;
+
+payload = Map();
+payload.put("Lead_Source", "Website");
+
+// Atualiza o registro de forma silenciosa
+// resp = zoho.crm.updateRecord("Leads", id.toLong(), payload);
+// info "Status da atualização: " + resp.get("code");
+
+info "Processamento finalizado para o ID: " + id;

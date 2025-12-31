@@ -1,0 +1,55 @@
+
+// Notas de Debug e Comentários
+// Log rápido para acompanhar o fluxo no console
+info "Iniciando script de fundamentos...";
+
+// Variáveis e tipos que mais aparecem no CRM
+nome = "João Silva";
+ativo = true;
+quantidade = 10;
+taxa = 0.15;
+
+// Map: Uso direto para montar o que vai ser enviado para o Zoho
+contato = Map();
+contato.put("First_Name", "João");
+contato.put("Last_Name", "Silva");
+contato.put("Email", "joao.silva@gmail.com");
+
+// List: Útil para tags ou IDs de registros relacionados
+tags = List();
+tags.add("cliente_vip");
+tags.add("prioridade_alta");
+
+info "Dados do Contato: " + contato;
+info "Tags aplicadas: " + tags;
+
+// Condicionais: Validando score antes de decidir o próximo passo
+score = 72;
+if (score >= 70)
+{
+    info "Aprovado";
+}
+else
+{
+    info "Reprovado";
+}
+
+// Loops (iterações)
+numeros = {1,2,3,4,5};
+for each n in numeros
+{
+    info "n = " + n;
+}
+
+// Validação de dados antes de processar o payload
+if (contato.containsKey("Email") && contato.get("Email") != null)
+{
+    // Chamada de API (ex.: zoho.crm.createRecord)
+    info "Payload pronto para envio: " + contato;
+}
+else
+{
+    info "Email ausente — abortando operação";
+}
+
+info "Fim - fundamentos";

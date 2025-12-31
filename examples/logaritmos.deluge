@@ -1,0 +1,7 @@
+// Demonstração de logaritmos: ln (log) e base 10 (log10)
+
+numero1 = 10;
+info "ln(10) = " + numero1.log(); // ~2.302585...
+
+numero2 = 81;
+info "log10(81) = " + numero2.log10(); // ~1.908485...

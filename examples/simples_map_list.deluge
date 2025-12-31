@@ -1,0 +1,24 @@
+
+// --- MAP (Dicionário de chave e valor) ---
+// Usado para representar um registro (ex: um contato)
+usuario = Map();
+usuario.put("Nome", "Carlos");
+usuario.put("Email", "carlos@exemplo.com");
+
+info "Dados do usuário: " + usuario;
+info "Apenas o nome: " + usuario.get("Nome");
+
+// --- LIST (Lista de itens) ---
+// Usado para guardar vários valores ou registros
+frutas = List();
+frutas.add("Maçã");
+frutas.add("Banana");
+frutas.add("Laranja");
+
+info "Minha lista de frutas: " + frutas;
+
+// Percorrendo a lista
+for each fruta in frutas
+{
+    info "Eu gosto de " + fruta;
+}

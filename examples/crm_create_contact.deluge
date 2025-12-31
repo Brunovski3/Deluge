@@ -1,0 +1,10 @@
+// Create Record (Contacts)
+
+mp = Map();
+mp.put("Last_Name", "Silva");
+mp.put("First_Name", "João");
+mp.put("Email", "joao.silva@gmail.com");
+mp.put("Phone", "+55 21 98888-7777");
+
+resp = zoho.crm.createRecord("Contacts", mp);
+info resp;

@@ -1,0 +1,12 @@
+// Use case: log10 + update em Deals
+
+dealId = 1234567890123456; 
+
+numero = 81;
+indicador = numero.log10();
+
+mp = Map();
+mp.put("Description", "Indicador log10(81) = " + indicador);
+
+resp = zoho.crm.updateRecord("Deals", dealId, mp);
+info resp;

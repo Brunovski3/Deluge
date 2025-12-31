@@ -1,0 +1,53 @@
+// Demonstração de Map e List (coleções) e operações comuns
+
+info "Início - collections demo";
+
+// Criando uma lista de contatos (cada contato é um Map)
+contatos = List();
+
+ct1 = Map();
+ct1.put("id", 1001);
+ct1.put("First_Name", "Ana");
+ct1.put("Last_Name", "Pereira");
+ct1.put("Email", "ana.pereira@outlook.com");
+
+ct2 = Map();
+ct2.put("id", 1002);
+ct2.put("First_Name", "Bruno");
+ct2.put("Last_Name", "Costa");
+ct2.put("Email", "bruno.costa@gmail.com");
+
+contatos.add(ct1);
+contatos.add(ct2);
+
+info "Lista de contatos: " + contatos;
+
+// Procurar um contato por id
+procuraId = 1002;
+found = null;
+for each c in contatos
+{
+    if (c.get("id") == procuraId)
+    {
+        found = c;
+        break;
+    }
+}
+
+if (found != null)
+{
+    info "Contato encontrado: " + found;
+    // atualizar um campo
+    found.put("Email", "contato.atualizado@gmail.com");
+    info "Contato atualizado: " + found;
+}
+else
+{
+    info "Contato com id " + procuraId + " não encontrado";
+}
+
+// Remover um campo do Map
+found.remove("Last_Name");
+info "Após remover Last_Name: " + found;
+
+info "Fim - collections demo";

@@ -1,0 +1,27 @@
+// Exemplo simples de condicional (if-else)
+
+idade = 18;
+
+if (idade >= 18)
+{
+    info "Maior de idade";
+}
+else
+{
+    info "Menor de idade";
+}
+
+status = "Aberto";
+
+if (status == "Aberto")
+{
+    info "O chamado ainda está pendente.";
+}
+else if (status == "Fechado")
+{
+    info "O chamado foi resolvido.";
+}
+else
+{
+    info "Status desconhecido.";
+}

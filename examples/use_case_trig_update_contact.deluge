@@ -1,0 +1,14 @@
+// Use case: trigonometria + update no CRM
+
+contatoId = 1234567890123456; 
+
+angulo = 0.7853981633974483; // ~45° em radianos
+base = 100;
+
+fator = base * angulo.cos();
+
+mp = Map();
+mp.put("Description", "Fator calculado via cos(): " + fator);
+
+resp = zoho.crm.updateRecord("Contacts", contatoId, mp);
+info resp;
