@@ -1,0 +1,35 @@
+//Para realizar essas ações, empregamos os seguintes métodos de coleções:
+//update, para atualizar um registro, utilizando a seguinte sintaxe:
+//<collectionVariable>.updateRecord(<module>, <NUMBER>, <KEY-VALUE>);
+//Exemplo
+
+update = zoho.crm.updateRecord("Contacts",contatoId,mp);
+ 
+
+//module = nome de API do módulo em que a atualização será feita;
+//NUMBER = id do registro que a atualização será feita;
+//KEY-VALUE = variável que contém o mapeamento (chave-valor) dos campos que serão atualizados;
+//create, para criar um novo registro, utilizando a seguinte sintaxe:
+//create = zoho.crm.createRecord(<module>, <KEY-VALUE>)
+
+//Exemplo
+create = zoho.crm.createRecord("Contacts",mp);
+ 
+
+//module = nome de API do módulo em que um registro será criado;
+//KEY-VALUE = variável que contém o mapeamento (chave-valor) dos campos que serão preenchidos no registro criado;
+
+ 
+
+//delete, para remover uma entrada, utilizando a seguinte sintaxe:
+//<Response> = zoho.crm.invokeConnector("crm.delete", <Module & ID values map>);
+
+//Exemplo
+mp = Map();
+mp = {"module":"Tasks","id":tarefaid};
+delete = zoho.crm.invokeConnector("crm.delete",mp);
+info delete;
+ 
+
+//module = nome de API do módulo em que um registro será excluído;
+//ID values map = Mapeamento do ID do registro que será excluído;
