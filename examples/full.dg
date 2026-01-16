@@ -1,0 +1,111 @@
+
+// Busca um lead pelo ID
+lead = zoho.crm.getRecordById("Leads", 12345678901234);
+info lead;
+
+
+
+
+// Cria um novo contato no CRM
+novoContato = Map();
+novoContato.put("First_Name", "João");
+novoContato.put("Last_Name", "Silva");
+novoContato.put("Email", "joao.silva@empresa.com");
+novoContato.put("Phone", "16999998888");
+
+resposta = zoho.crm.createRecord("Contacts", novoContato);
+info resposta;
+
+
+
+
+
+// Atualiza o status de um negócio (Deal)
+dadosAtualizados = Map();
+dadosAtualizados.put("Stage", "Proposta Enviada");
+dadosAtualizados.put("Amount", 15000.00);
+
+resposta = zoho.crm.updateRecord("Deals", 98765432109876, dadosAtualizados);
+info resposta;
+
+
+
+
+
+
+
+// Busca leads criados hoje
+hoje = zoho.currentdate.toString("yyyy-MM-dd");
+criterio = "(Created_Time:equals:" + hoje + ")";
+
+leads = zoho.crm.searchRecords("Leads", criterio);
+for each lead in leads
+{
+    info lead.get("Last_Name") + " - " + lead.get("Email");
+}
+
+
+
+
+
+
+
+// Envia e-mail para um contato
+destinatario = "cliente@exemplo.com";
+assunto = "Proposta Comercial";
+corpo = "Olá,<br><br>Segue nossa proposta conforme conversamos.<br><br>Atenciosamente,<br>Equipe Comercial";
+
+sendmail
+[
+    from: zoho.adminuserid
+    to: destinatario
+    subject: assunto
+    message: corpo
+]
+
+
+
+
+
+
+// Cria uma tarefa de follow-up vinculada a um Deal
+novaTarefa = Map();
+novaTarefa.put("Subject", "Ligar para cliente");
+novaTarefa.put("Due_Date", zoho.currentdate.addDay(3));
+novaTarefa.put("Priority", "Alta");
+novaTarefa.put("Status", "Não Iniciada");
+novaTarefa.put("$se_module", "Deals");
+novaTarefa.put("What_Id", 98765432109876);
+
+resposta = zoho.crm.createRecord("Tasks", novaTarefa);
+info resposta;
+
+
+
+
+
+// Verifica quantos créditos de função sobraram hoje
+limiteTotal = zoho.crm.getOrgVariable("FUNCTION_LIMIT");
+creditosUsados = zoho.crm.getOrgVariable("USED_FUNCTION_CREDITS");
+
+info "Limite: " + limiteTotal + " | Usados: " + creditosUsados;
+
+
+
+
+
+
+
+// Faz requisição GET para API externa
+url = "https://api.exemplo.com/dados";
+cabecalhos = Map();
+cabecalhos.put("Authorization", "Bearer SEU_TOKEN_AQUI");
+
+resposta = invokeurl
+[
+    url: url
+    type: GET
+    headers: cabecalhos
+];
+
+info resposta;
